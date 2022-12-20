@@ -8,10 +8,13 @@ void main(List<String> arguments) {
   bool isMadura = funcEstaMadura(diasDesdeColheita);
   print(isMadura);
   print(funcEstaMadura(diasDesdeColheita));
+  print(peso);
+  print(sabor);
   mostrarMadura(nome, diasDesdeColheita);
   mostrarMadura2(nome, diasDesdeColheita, cor: cor);
   mostrarMadura3(nome, diasDesdeColheita, cor: cor);
   mostrarMadura4(nome: nome, dias: diasDesdeColheita, cor: cor);
+  print(funcQuantosDiasMadura(diasDesdeColheita));
 }
 
 /* Parametros Obrigatórios */
@@ -63,4 +66,10 @@ void mostrarMadura4(
     print("A $nome não está madura");
   }
   print("A $nome é $cor");
+}
+
+int funcQuantosDiasMadura(int dias) {
+  int diasParaMadura = 30;
+  int quantosDiasFaltam = diasParaMadura - dias;
+  return quantosDiasFaltam;
 }
