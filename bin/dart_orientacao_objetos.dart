@@ -73,3 +73,14 @@ int funcQuantosDiasMadura(int dias) {
   int quantosDiasFaltam = diasParaMadura - dias;
   return quantosDiasFaltam;
 }
+
+class Fruta {
+  String? nome;
+  double? peso;
+  String? cor;
+  String? sabor;
+  int? diasDesdeColheita;
+  bool? isMadura;
+
+  Fruta();
+}
