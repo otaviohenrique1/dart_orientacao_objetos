@@ -13,16 +13,15 @@ void main(List<String> arguments) {
   }
 }
 
-class Fruta {
-  String nome;
-  double peso;
-  String cor;
+class Fruta extends Alimento {
   String sabor;
   int diasDesdeColheita;
   bool? isMadura;
 
-  Fruta(this.nome, this.peso, this.cor, this.sabor, this.diasDesdeColheita,
-      {this.isMadura});
+  Fruta(
+      String nome, double peso, String cor, this.sabor, this.diasDesdeColheita,
+      {this.isMadura})
+      : super(nome, peso, cor);
 
   estaMadura(int diasParaMadura) {
     isMadura = diasDesdeColheita >= diasParaMadura;
@@ -56,15 +55,11 @@ class Legumes extends Alimento {
   }
 }
 
-class Citricas {
-  String nome;
-  double peso;
-  String cor;
-  int diasDesdeColheita;
-  bool? isMadura;
+class Citricas extends Fruta {
   double nivelAzedo;
-  Citricas(
-      this.nome, this.peso, this.cor, this.diasDesdeColheita, this.nivelAzedo);
+  Citricas(String nome, double peso, String cor, String sabor,
+      int diasDesdeColheita, this.nivelAzedo)
+      : super(nome, peso, cor, sabor, diasDesdeColheita);
 }
 
 class Nozes {
