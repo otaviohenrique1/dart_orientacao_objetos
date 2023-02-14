@@ -1,16 +1,16 @@
 void main(List<String> arguments) {
-  String nome = 'Laranja';
-  double peso = 100.2;
-  String cor = "Verde e Amarela";
-  String sabor = "Doce e cítrica";
-  int diasDesdeColheita = 40;
-  bool isMadura;
+  // String nome = 'Laranja';
+  // double peso = 100.2;
+  // String cor = "Verde e Amarela";
+  // String sabor = "Doce e cítrica";
+  // int diasDesdeColheita = 40;
+  // bool isMadura;
 
-  if (diasDesdeColheita >= 30) {
-    isMadura = true;
-  } else {
-    isMadura = false;
-  }
+  // if (diasDesdeColheita >= 30) {
+  //   isMadura = true;
+  // } else {
+  //   isMadura = false;
+  // }
 
   Legumes mandioca1 = Legumes('Macaxeira', 1200, 'Marrom', true);
   Fruta banana1 = Fruta('Banana', 75, 'Amarela', 'Doce', 12);
@@ -28,7 +28,7 @@ void main(List<String> arguments) {
   limao1.existeRefri(true);
 }
 
-class Fruta extends Alimento {
+class Fruta extends Alimento implements Bolo {
   String sabor;
   int diasDesdeColheita;
   bool? isMadura;
@@ -46,6 +46,21 @@ class Fruta extends Alimento {
 
   void fazerSuco() {
     print("Você fez um ótimo suco de $nome");
+  }
+
+  @override
+  void assar() {
+    print("Assar a fruta");
+  }
+
+  @override
+  void fazerMassa() {
+    print("Fazer massa com a fruta");
+  }
+
+  @override
+  void separarIngredientes() {
+    print("Separar as frutas ingredientes");
   }
 }
 
@@ -109,9 +124,16 @@ class Nozes extends Fruta {
   Nozes(String nome, double peso, String cor, String sabor,
       int diasDesdeColheita, this.porcentagemOleoNatural)
       : super(nome, peso, cor, sabor, diasDesdeColheita);
+
+  @override
+  void fazerMassa() {
+    print("Tirar a casca");
+    super.fazerMassa(); /* Opcional */
+  }
 }
 
 abstract class Bolo {
+  /* 'abstract class' => Parecido com 'interface' de outras linguagens*/
   void separarIngredientes();
   void fazerMassa();
   void assar();
