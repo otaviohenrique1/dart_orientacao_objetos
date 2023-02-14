@@ -36,11 +36,44 @@ class Alimento {
   double peso;
   String cor;
   Alimento(this.nome, this.peso, this.cor);
+
+  void printAlimento() {
+    print("Este(a) $nome pesa $peso gramas e é $cor");
+  }
 }
 
-class Legumes {
+class Legumes extends Alimento {
+  bool isPrecisaCozinhar;
+  Legumes(String nome, double peso, String cor, this.isPrecisaCozinhar)
+      : super(nome, peso, cor);
+
+  void cozinhar() {
+    if (isPrecisaCozinhar) {
+      print("Pronto, o $nome está cozinhando!");
+    } else {
+      print("Nem precisa cozinhar!");
+    }
+  }
+}
+
+class Citricas {
   String nome;
   double peso;
   String cor;
-  Legumes(this.nome, this.peso, this.cor);
+  int diasDesdeColheita;
+  bool? isMadura;
+  double nivelAzedo;
+  Citricas(
+      this.nome, this.peso, this.cor, this.diasDesdeColheita, this.nivelAzedo);
+}
+
+class Nozes {
+  String nome;
+  double peso;
+  String cor;
+  int diasDesdeColheita;
+  bool? isMadura;
+  double porcentagemOleoNatural;
+  Nozes(this.nome, this.peso, this.cor, this.diasDesdeColheita,
+      this.porcentagemOleoNatural);
 }
